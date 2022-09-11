@@ -13,11 +13,12 @@ Future<void> run(HookContext context) async {
 
 Future<ProcessResult> _generateApp(HookContext context) async {
   context.logger.info('Running flutter create...');
+  var app_name = context.vars['name'];
   var app_description = context.vars['description'];
   var name_org = context.vars['org'];
   return Process.run('flutter', [
     'create',
-    '{{name}}',
+    '$app_name',
     '--description',
     '$app_description',
     '--org',
